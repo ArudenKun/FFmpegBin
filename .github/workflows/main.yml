@@ -14,10 +14,6 @@ on:
         type: boolean
         description: Skip version check
         required: false
-      delete-release-if-exist:
-        type: boolean
-        description: Delete release if tag exist
-        default: true
 
 jobs:
   # Check if the latest version of FFmpeg in vcpkg is newer than the latest release
