@@ -85,6 +85,7 @@ jobs:
           moniker="${{ matrix.target-arch }}-${{ matrix.target-platform }}"
 
           triplet_preferences=(
+            "$moniker-dynamic"
             "$moniker-static-release"
             "$moniker-static"
             "$moniker-release"
@@ -137,7 +138,7 @@ jobs:
       - name: Build FFmpeg
         run: >
           vcpkg install ffmpeg[${{ steps.config.outputs.features }}]
-          --enable-shared
+          --patches
           --triplet ${{ steps.config.outputs.triplet }}
           --recurse
 
