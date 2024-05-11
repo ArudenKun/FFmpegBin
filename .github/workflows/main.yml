@@ -103,7 +103,11 @@ jobs:
 
           features=(
             "core"
+            
             "ffmpeg"
+            "ffplay"
+            "ffprobe"
+            
             "nonfree"
             "avcodec"
             "x264"
