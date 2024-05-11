@@ -1,19 +1,19 @@
 name: main
 
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - "**.md"
-  schedule:
-    - cron: "0 0 1 * *"
+  # push:
+  #   branches:
+  #     - master
+  #   paths-ignore:
+  #     - "**.md"
+  # schedule:
+  #   - cron: "0 0 1 * *"
   workflow_dispatch:
-    inputs:
-      skip-version-check:
-        type: boolean
-        description: Skip version check
-        required: false
+    # inputs:
+    #   skip-version-check:
+    #     type: boolean
+    #     description: Skip version check
+    #     required: false
 
 jobs:
   # Check if the latest version of FFmpeg in vcpkg is newer than the latest release
@@ -117,53 +117,10 @@ jobs:
 
           features=(
             "core"
-
             "ffmpeg"
-            "ffplay"
-            "ffprobe"
-
             "nonfree"
-
-            ${{ !(matrix.target-platform == 'windows' && matrix.target-arch == 'x86') && '"aom"' || '' }}
-            ${{ matrix.target-platform != 'osx' && '"amf"' || '' }}
-            "ass"
             "avcodec"
-            "avdevice"
-            "avfilter"
-            "avformat"
-            "bzip2"
-            "dav1d"
-            "freetype"
-            "fribidi"
-            "iconv"
-            "ilbc"
-            "lzma"
-            "modplug"
-            "mp3lame"
-            ${{ (matrix.target-platform == 'linux' || (matrix.target-platform == 'windows' && matrix.target-arch != 'arm64')) && '"nvcodec"' || '' }}
-            "opencl"
-            "opengl"
-            "openjpeg"
-            "openmpt"
-            "openssl"
-            "opus"
-            "postproc"
-            "sdl2"
-            "snappy"
-            "soxr"
-            "speex"
-            "srt"
-            "ssh"
-            "swresample"
-            "swscale"
-            "theora"
-            "vorbis"
-            "vpx"
-            "webp"
             "x264"
-            ${{ !(matrix.target-platform == 'windows' && matrix.target-arch == 'arm64') && '"x265"' || '' }}
-            "xml2"
-            "zlib"
           )
 
           features_string=$(IFS=, ; echo "${features[*]}")
