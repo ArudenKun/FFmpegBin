@@ -137,6 +137,7 @@ jobs:
       - name: Build FFmpeg
         run: >
           vcpkg install ffmpeg[${{ steps.config.outputs.features }}]
+          --enable-shared
           --triplet ${{ steps.config.outputs.triplet }}
           --recurse
 
