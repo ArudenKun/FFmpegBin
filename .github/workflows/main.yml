@@ -88,7 +88,7 @@ jobs:
             "$moniker-dynamic"
             # "$moniker-static-release"
             # "$moniker-static"
-            # "$moniker-release"
+            "$moniker-release"
             "$moniker"
           )
 
