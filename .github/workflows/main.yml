@@ -102,15 +102,7 @@ jobs:
           )
 
           features=(
-            "core"
-            
             "ffmpeg"
-            "ffplay"
-            "ffprobe"
-            
-            "nonfree"
-            "avcodec"
-            "x264"
           )
 
           features_string=$(IFS=, ; echo "${features[*]}")
