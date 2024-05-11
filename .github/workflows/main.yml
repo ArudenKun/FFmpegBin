@@ -55,29 +55,14 @@ jobs:
         target-platform:
           - linux
           - windows
-          - osx
         target-arch:
           - x64
-          - x86
-          - arm64
         # Determine the runner OS based on the target platform
         include:
           - target-platform: linux
             os: ubuntu-latest
           - target-platform: windows
             os: windows-latest
-          - target-platform: osx
-            os: macos-latest
-        exclude:
-          # macOS x86 is not a concept that exists
-          - target-platform: osx
-            target-arch: x86
-          # Can't build for these targets for some reason
-          - target-platform: linux
-            target-arch: x86
-          - target-platform: linux
-            target-arch: arm64
-
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
